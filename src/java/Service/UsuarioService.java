@@ -95,7 +95,7 @@ public class UsuarioService {
     // Método para autenticar un usuario
     public Usuario autenticarUsuario(String correo, String contrasena) {
         //String sql = "SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?";
-        String sql = "SELECT u.*, r.nombreRol FROM usuarios u JOIN roles r ON u.idRol = r.idRol WHERE correo = ? AND contrasena = ? AND estatus = 'activo'";
+        String sql = "SELECT u.*, r.nombreRol FROM usuarios u JOIN roles r ON u.idRol = r.idRol WHERE correo = ? AND contrasena = ?";
         Usuario usuario = null;
 
         try (Connection connection = cn.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {

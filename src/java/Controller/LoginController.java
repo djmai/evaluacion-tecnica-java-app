@@ -105,17 +105,26 @@ public class LoginController extends HttpServlet {
 
         Usuario usuario = usuarioService.autenticarUsuario(correo, contrasena);
         if (usuario != null) {
-            // Guardar información del usuario en la sesión
-            HttpSession session = request.getSession();
-            session.setAttribute("usuario", usuario);
+            // Verificar si el usuario está activo
+            if ("activo".equals(usuario.getEstatus())) {
+                // Guardar información del usuario en la sesión
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario", usuario);
 
-            // Obtener los permisos del usuario
-            List<String> permisos = usuarioDAO.obtenerPermisos(usuario.getId());
+                // Obtener los permisos del usuario
+                List<String> permisos = usuarioDAO.obtenerPermisos(usuario.getId());
 
-            // Guardar los permisos en la sesión (o en el request si solo es para esta página)
-            session.setAttribute("permisos", permisos);
+                // Guardar los permisos en la sesión (o en el request si solo es para esta página)
+                session.setAttribute("permisos", permisos);
 
-            response.sendRedirect(request.getContextPath() + "/inicio"); // Cambiar a la ruta de inicio
+                response.sendRedirect(request.getContextPath() + "/inicio"); // Cambiar a la ruta de inicio
+            } else {
+                // El usuario está inactivo
+                request.setAttribute("error", "Su cuenta está inactiva. Contacte al administrador.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/views/auth/login.jsp");
+                dispatcher.forward(request, response);
+            }
+
         } else {
             request.setAttribute("error", "Credenciales incorrectas");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/auth/login.jsp");
