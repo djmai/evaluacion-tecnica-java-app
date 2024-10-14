@@ -81,6 +81,26 @@ Prueba técnica de una aplicación en Java que incluye funcionalidades de gesti�
       http://localhost:8080/nombre_proyecto
       ```
    Si todo salio correcto la aplicación debera mostrar el login inicial
+
+7. Iniciar sesión
+   - El sistema en su punto inicial al momento cuenta con usuarios registrados, con los cuales se puede validar su inicio de sesión y acceder al sistema
+   
+      ```
+      juan.perez@empresa.com	password123	1	activo
+      ana.gomez@empresa.com	password456	2	activo
+      carlos.ruiz@empresa.com	password789	2	inactivo
+      ```
+   - Roles de los usuarios son dos (Administrador, Almacenista)
+
+      | Permiso                             	| Administrador 	| Almacenista 	|
+      |-------------------------------------	|---------------	|-------------	|
+      | Ver módulo inventario               	|  ✓ |  ✓  |
+      | Agregar nuevos productos            	|  ✓ |  X  |
+      | Aumentar inventario                 	|  ✓ |  X  |
+      | Dar de baja/reactivar un producto   	|  ✓ |  X  |
+      | Ver módulo para Salida de productos 	|  X  |  ✓ |
+      | Sacar inventario del almacén        	|  X  |  ✓ |
+      | Ver módulo del histórico            	|  ✓ |  ✓ |
    
 
 
