@@ -1,5 +1,3 @@
-# Evaluación Técnica JAVA App
-
 <img width="300px" align="right" alt="logo_mmmv" src="https://mmartinezdev.com/wp-content/uploads/2023/05/cropped-Red-M-Letter-Mosaic-Logo-Template-2-100x62.png">
 
 # Evaluación Técnica JAVA App
