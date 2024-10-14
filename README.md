@@ -70,6 +70,18 @@ Prueba técnica de una aplicación en Java que incluye funcionalidades de gesti�
      - Selecciona GlassFish y configúralo si es necesario, proporcionando la ruta de instalación.
      - Verifica que GlassFish esté configurado como el servidor predeterminado para este proyecto.
 
+__NOTA__: <em>Antes de ejecutar el proyecto hay que verificar que las credenciales de conexion a MySQL sean las correctas o las mismas que estan en el archivo DatabaseConnection.java</em>
+
+<em>Este archivo se encuenta en la ruta "Sources Packages/Config/DatabaseConnection"</em>
+
+   ```php
+   Los datos a modificar son los siguientes:
+
+      - private static final String URL = "jdbc:mysql://localhost:3306/castores_db?autoReconnect=true&useSSL=false";
+      - private static final String USER = "toor";  // Cambia esto por tu usuario de MySQL
+      - private static final String PASSWORD = "root";  // Cambia esto por tu contraseña de MySQL
+   ```
+
 5. Construir y Ejecutar el Proyecto en NetBeans
    - En NetBeans, haz clic derecho sobre el proyecto y selecciona Clean and Build.
    - Después de la compilación, haz clic derecho nuevamente en el proyecto y selecciona Run. Esto iniciará la aplicación en el servidor GlassFish.
