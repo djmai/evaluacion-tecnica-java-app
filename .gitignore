@@ -21,7 +21,7 @@ nbproject/
 
 # Database files
 *.db
-*.sql
+# *.sql
 
 # Configuration files
 *.properties
